@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ="en">
+<head>
+</head>
+<body>
+    <h1>This Is An Example Of A <u>While</u> Loop</h1><br><br>
+    <div id="imagesection">
+    </div>
+    <script>
+          debugger;
+           var lp_conter = 1;//this will set the counter at 1
+           while (lp_conter <=6){
+             //execute code to loop images 6 times
+             document.write("<div><img src= 'photos/img_"+lp_conter+".jpeg'/> ")
+             document.write("<br>")
+             document.write("<p>Hot Image #"+lp_conter+" </p></div>");
+             lp_conter ++;
+             //lp_conter = lp_conter + 1;
+           }
+          alert("Successful Loop Images");
+    </script>
+</body>
+<html>
