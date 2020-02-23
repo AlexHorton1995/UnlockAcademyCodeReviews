@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<title>Enter Your Shipping Info</title>
+<html>
+<head>
+    <style>
+        #FirstName{
+         margin-left:30%;
+        }
+        #LastName{
+         margin-left:55%;
+         margin-top:-5.5%;
+        }
+        #Address1{
+        margin-left:30%;
+        }
+        #Address2{
+        margin-left:55%;
+        margin-top:-5.5%;
+        }
+        #City{
+        margin-left:30%;
+        }
+        #State{
+        margin-left:55%;
+        margin-top:-5.5%;
+        }
+        #Zip{
+        margin-left:30%;
+        }
+        #Age{
+        margin-left:55%;
+        margin-top:-5.5%;
+        }
+        #submitbutton{
+        margin-left:47%
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center">
+        <h1>Shipping Information</h1>
+    </div>
+    <br>
+    <div id="FirstName">
+        <p>First Name</p>
+        <input type="text" id="firstNameInput"/>
+    </div>
+    <div id="LastName">
+        <p>Last Name</p>
+        <input type="text" id="lastNameInput"/>
+    </div>
+    <div id="Address1">
+        <p>Address1</p>
+        <input type="text" id="address1Input"/>
+    </div>
+    <div id="Address2">
+        <p>Address2</p>
+        <input type="text" id="address2Input"/>
+    </div>
+    <div id="City">
+        <p>City</p>
+        <input type="text" id="cityInput"/>
+    </div>
+    <div id="State">
+        <p>State</p>
+        <input type="text" id="stateInput"/>
+    </div>
+    <div id="Zip">
+        <p>Zip</p>
+        <input type="text" id="zipInput"/>
+    </div>
+    <div id="Age">
+        <p>Age</p>
+        <input type="text" id="ageInput"/>
+    </div>
+    <br>
+    <button id="submitbutton" onclick="verifyInformation()">Verify Info</button>
+    <script>
+        function verifyInformation(){
+            var firstNameElement = document.getElementById("firstNameInput");
+            var firstNameValue = firstNameElement.value;
+            var firstNameLength = firstNameValue.length;
+            if(firstNameLength > 5){
+                alert("success");
+                document.getElementbyId("firstNameErrorMessage").innerHTML="";
+            }
+        }
+    </script>
+</body>
+</html>
