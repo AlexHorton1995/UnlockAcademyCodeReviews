@@ -1,89 +1,119 @@
 <!DOCTYPE HTML>
 <title>Enter Your Shipping Info</title>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta charset="utf-8" />
     <style>
-        #FirstName{
-         margin-left:30%;
+        td{
+            padding: 5px;
         }
-        #LastName{
-         margin-left:55%;
-         margin-top:-5.5%;
+        .sError{
+            color:red;
+            font-weight: bold;
         }
-        #Address1{
-        margin-left:30%;
-        }
-        #Address2{
-        margin-left:55%;
-        margin-top:-5.5%;
-        }
-        #City{
-        margin-left:30%;
-        }
-        #State{
-        margin-left:55%;
-        margin-top:-5.5%;
-        }
-        #Zip{
-        margin-left:30%;
-        }
-        #Age{
-        margin-left:55%;
-        margin-top:-5.5%;
-        }
-        #submitbutton{
-        margin-left:47%
-        }
+
     </style>
 </head>
 <body>
     <div style="text-align:center">
+    <p>
         <h1>Shipping Information</h1>
+    </p>
     </div>
-    <br>
-    <div id="FirstName">
-        <p>First Name</p>
-        <input type="text" id="firstNameInput"/>
-    </div>
-    <div id="LastName">
-        <p>Last Name</p>
-        <input type="text" id="lastNameInput"/>
-    </div>
-    <div id="Address1">
-        <p>Address1</p>
-        <input type="text" id="address1Input"/>
-    </div>
-    <div id="Address2">
-        <p>Address2</p>
-        <input type="text" id="address2Input"/>
-    </div>
-    <div id="City">
-        <p>City</p>
-        <input type="text" id="cityInput"/>
-    </div>
-    <div id="State">
-        <p>State</p>
-        <input type="text" id="stateInput"/>
-    </div>
-    <div id="Zip">
-        <p>Zip</p>
-        <input type="text" id="zipInput"/>
-    </div>
-    <div id="Age">
-        <p>Age</p>
-        <input type="text" id="ageInput"/>
-    </div>
-    <br>
-    <button id="submitbutton" onclick="verifyInformation()">Verify Info</button>
-    <script>
+    <table id="infoTable" align="center">
+        <tr>
+            <td>First Name:<br />
+                 <input type="text" id="firstNameInput"/><div class="sError"></div>
+                </td>
+            <td> Last Name:<br />
+                <input type="text" id="lastNameInput"/><div class="sError"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Address 1:<br />
+                <input type="text" id="address1Input"/>
+                <div class="sError"></div>
+            </td>
+            <td>Address 2:<br />
+                <input type="text" id="address2Input"/>
+            </td>
+        </tr>
+        <tr>
+            <td>City:<br />
+                <input type="text" id="cityInput"/>
+                <div class="sError"></div>
+            </td>
+            <td>State:<br />
+                <input type="text" id="stateInput"/>
+                <div class="sError"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Zip:<br />
+                <input type="text" id="zipInput"/>
+                <div class="sError"></div>
+            </td>
+            <td>Age:<br />
+                <input type="text" id="ageInput"/>
+                <div class="sError"></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="right">
+                <button onclick="verifyInformation()">Verify Info</button>
+            </td>
+        </tr>
+    </table>
+</form>
+    <script type="text/javascript">
+            document.getElementById("firstNameInput").value = "";
+            document.getElementById("lastNameInput").value = "";
+            document.getElementById("address1Input").value = "";
+            document.getElementById("address2Input").value = "";
+            document.getElementById("cityInput").value = "";
+            document.getElementById("stateInput").value = "";
+            document.getElementById("zipInput").value = "";
+
         function verifyInformation(){
-            var firstNameElement = document.getElementById("firstNameInput");
-            var firstNameValue = firstNameElement.value;
-            var firstNameLength = firstNameValue.length;
-            if(firstNameLength > 5){
-                alert("success");
-                document.getElementbyId("firstNameErrorMessage").innerHTML="";
+            var firstName = document.getElementById("firstNameInput").value;
+            var lastName = document.getElementById("lastNameInput").value;
+            var address1 = document.getElementById("address1Input").value;
+            var address2 = document.getElementById("address2Input").value;
+            var city = document.getElementById("cityInput").value;
+            var state = document.getElementById("stateInput").value;
+            var zip = document.getElementById("zipInput").value;
+            var age = document.getElementById("ageInput").value;
+
+            clearErrors();
+
+            if(firstName.length < 5){
+                document.getElementsByClassName("sError")[0].innerHTML = "**";
+            }else if(lastName.length < 5){
+                document.getElementsByClassName("sError")[1].innerHTML = "**";
+            }else if(address1.length < 10){
+                document.getElementsByClassName("sError")[2].innerHTML = "**";
+            }else if(city.length < 2){
+                document.getElementsByClassName("sError")[3].innerHTML = "**";
+            }else if(state.length < 2){
+                document.getElementsByClassName("sError")[4].innerHTML = "**";
+            }else if(zip.length < 5){
+                document.getElementsByClassName("sError")[5].innerHTML = "**";
+            }else if(isNaN(age)){
+                document.getElementsByClassName("sError")[6].innerHTML = "**";
+            }else if(age == "" || age == null){
+                document.getElementsByClassName("sError")[6].innerHTML = "**";
             }
+        }
+
+        function clearErrors(){
+                document.getElementsByClassName("sError")[0].innerHTML = "";
+                document.getElementsByClassName("sError")[1].innerHTML = "";
+                document.getElementsByClassName("sError")[2].innerHTML = "";
+                document.getElementsByClassName("sError")[3].innerHTML = "";
+                document.getElementsByClassName("sError")[4].innerHTML = "";
+                document.getElementsByClassName("sError")[5].innerHTML = "";
+                document.getElementsByClassName("sError")[6].innerHTML = "";
         }
     </script>
 </body>
